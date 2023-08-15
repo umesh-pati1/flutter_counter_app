@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_couter_app/bloc/counter_bloc.dart';
 import 'package:flutter_couter_app/bloc/counter_event.dart';
+import 'package:flutter_couter_app/bloc/counter_state.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
@@ -12,10 +13,10 @@ class CounterPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Counter'),
       ),
-      body: BlocBuilder<CounterBloc, int>(
-        builder: (context, count) => Center(
+      body: BlocBuilder<CounterBloc, CounterState>(
+        builder: (context, state) => Center(
           child: Text(
-            '$count',
+            '${state.counter}',
             style: const TextStyle(fontSize: 24.0),
           ),
         ),
